@@ -37,14 +37,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<div class="date">
 							<FormattedDate date={pubDate} />
 							{updatedDate && (
-								<div class="last-updated-on">\u66F4\u65B0\u4E8E <FormattedDate date={updatedDate} /></div>
+								<div class="last-updated-on">更新于 <FormattedDate date={updatedDate} /></div>
 							)}
 						</div>
 						<h1>{title}</h1>
 						<hr />
 					</div>
 					<slot />
-					<p class="back-link"><a href="/blog">\u2190 \u8FD4\u56DE\u65B0\u95FB\u5217\u8868</a></p>
+					<p class="back-link"><a href="/blog">&larr; 返回新闻列表</a></p>
 				</div>
 			</article>
 		</main>
