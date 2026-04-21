@@ -1,46 +1,25 @@
 ---
-// Comment system: Cusdis (guest) + Giscus (GitHub)
+// Utterances comment system - free, GitHub Issues based
 ---
 
 <div class="comments-section">
-	<h3>游客评论（无需登录）</h3>
-	<div id="cusdis_thread"
-		data-host="https://cusdis.com"
-		data-app-id="6f6ee376-7756-4079-8c13-0603222b62ae"
-		data-page-id={Astro.url.pathname}
-		data-page-url={Astro.url.href}
-		data-page-title={Astro.props.title || ""}
-		data-lang="zh-cn"
-	></div>
+	<h3>评论</h3>
+	<script src="https://utteranc.es/client.js"
+		repo="aimeetyi/cetc3bj"
+		issue-term="pathname"
+		label="comment"
+		theme="github-light"
+		crossorigin="anonymous"
+		async>
+	</script>
 </div>
-
-<div class="comments-section" style="margin-top: 2em;">
-	<h3>GitHub 评论（需登录 GitHub）</h3>
-	<div class="giscus"></div>
-</div>
-
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-<script src="https://giscus.app/client.js"
-	data-repo="aimeetyi/cetc3bj"
-	data-repo-id="R_kgDOR60GXQ"
-	data-category="General"
-	data-category-id="DIC_kwDOR60GXc4C7WB6"
-	data-mapping="pathname"
-	data-strict="0"
-	data-reactions-enabled="1"
-	data-emit-metadata="0"
-	data-input-position="top"
-	data-theme="light"
-	data-lang="zh-CN"
-	crossorigin="anonymous"
-	async>
-</script>
 
 <style>
 	.comments-section {
 		border: 1px solid #e0e0e0;
 		border-radius: 8px;
 		padding: 1em;
+		margin-top: 2em;
 	}
 	.comments-section h3 {
 		margin-top: 0;
@@ -48,18 +27,5 @@
 		font-size: 1.1em;
 		border-bottom: 1px solid #eee;
 		padding-bottom: 0.5em;
-	}
-	/* Force Cusdis iframe visible on mobile */
-	:global(#cusdis_thread) {
-		overflow: visible !important;
-		position: relative;
-	}
-	:global(#cusdis_thread iframe) {
-		min-height: 350px !important;
-		width: 100% !important;
-		border: none !important;
-		display: block !important;
-		visibility: visible !important;
-		opacity: 1 !important;
 	}
 </style>
