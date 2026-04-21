@@ -24,7 +24,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.date { margin-bottom: 0.5em; color: rgb(var(--gray)); }
 			.last-updated-on { font-style: italic; }
 			.back-link { display: block; margin-top: 2em; text-align: center; }
-			.comment-area { width: 720px; max-width: calc(100% - 2em); margin: 2em auto; }
 		</style>
 	</head>
 	<body>
@@ -47,12 +46,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					</div>
 					<slot />
 					<p class="back-link"><a href="/blog">&larr; 返回新闻列表</a></p>
+					<Comments title={title} />
 				</div>
 			</article>
-
-			<div class="comment-area">
-				<Comments title={title} />
-			</div>
 		</main>
 		<Footer />
 	</body>
