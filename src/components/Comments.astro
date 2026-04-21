@@ -46,9 +46,8 @@
 		margin-top: 2em;
 		border: 1px solid #e0e0e0;
 		border-radius: 8px;
-		overflow: visible;
+		overflow: visible !important;
 		width: 100%;
-		min-height: 200px;
 	}
 	.comment-tabs {
 		display: flex;
@@ -65,12 +64,10 @@
 		color: #666;
 		transition: all 0.2s;
 		-webkit-tap-highlight-color: transparent;
-		touch-action: manipulation;
 	}
-	.tab-btn:hover, .tab-btn:focus {
+	.tab-btn:hover {
 		color: #333;
 		background: #eee;
-		poutline: none;
 	}
 	.tab-btn.active {
 		color: #2337ff;
@@ -81,41 +78,40 @@
 	.tab-content {
 		display: none;
 		padding: 1em;
-		min-height: 150px;
+		overflow: visible !important;
 	}
 	.tab-content.active {
 		display: block;
 	}
-	/* Mobile responsive */
+	/* Fix mobile */
 	@media (max-width: 720px) {
 		.comments-wrapper {
 			margin-top: 1em;
+			margin-left: -1em;
+			margin-right: -1em;
 			border-radius: 0;
 			border-left: none;
 			border-right: none;
 		}
-		.tab-btn {
-			font-size: 13px;
-			padding: 10px 4px;
-		}
 		.tab-content {
 			padding: 0.5em;
+		}
+		.tab-btn {
+			font-size: 13px;
 		}
 	}
 </style>
 
 <script is:inline>
 	document.addEventListener('DOMContentLoaded', function() {
-		const tabs = document.querySelectorAll('.tab-btn');
-		const contents = document.querySelectorAll('.tab-content');
+		var tabs = document.querySelectorAll('.tab-btn');
+		var contents = document.querySelectorAll('.tab-content');
 		
 		tabs.forEach(function(tab) {
 			tab.addEventListener('click', function() {
-				const target = this.getAttribute('data-tab');
-				
+				var target = this.getAttribute('data-tab');
 				tabs.forEach(function(t) { t.classList.remove('active'); });
 				contents.forEach(function(c) { c.classList.remove('active'); });
-				
 				this.classList.add('active');
 				document.getElementById('tab-' + target).classList.add('active');
 			});
