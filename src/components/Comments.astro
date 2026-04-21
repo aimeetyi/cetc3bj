@@ -1,27 +1,22 @@
 ---
-// Dual comment system: Cusdis (guest) + Giscus (GitHub) with tab switching
+// Comment system: Cusdis (guest) + Giscus (GitHub) - displayed together
 ---
 
-<div class="comments-wrapper">
-	<div class="comment-tabs">
-		<button class="tab-btn active" data-tab="cusdis" type="button">游客评论</button>
-		<button class="tab-btn" data-tab="giscus" type="button">GitHub 评论</button>
-	</div>
+<div class="comments-section">
+	<h3>游客评论（无需登录）</h3>
+	<div id="cusdis_thread"
+		data-host="https://cusdis.com"
+		data-app-id="6f6ee376-7756-4079-8c13-0603222b62ae"
+		data-page-id={Astro.url.pathname}
+		data-page-url={Astro.url.href}
+		data-page-title={Astro.props.title || ""}
+		data-lang="zh-cn"
+	></div>
+</div>
 
-	<div class="tab-content active" id="tab-cusdis">
-		<div id="cusdis_thread"
-			data-host="https://cusdis.com"
-			data-app-id="6f6ee376-7756-4079-8c13-0603222b62ae"
-			data-page-id={Astro.url.pathname}
-			data-page-url={Astro.url.href}
-			data-page-title={Astro.props.title || ""}
-			data-lang="zh-cn"
-		></div>
-	</div>
-
-	<div class="tab-content" id="tab-giscus">
-		<div class="giscus"></div>
-	</div>
+<div class="comments-section" style="margin-top: 2em;">
+	<h3>GitHub 评论（需登录 GitHub）</h3>
+	<div class="giscus"></div>
 </div>
 
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
@@ -42,79 +37,17 @@
 </script>
 
 <style>
-	.comments-wrapper {
-		margin-top: 2em;
+	.comments-section {
 		border: 1px solid #e0e0e0;
 		border-radius: 8px;
-		overflow: visible !important;
-		width: 100%;
-	}
-	.comment-tabs {
-		display: flex;
-		border-bottom: 1px solid #e0e0e0;
-		background: #f5f5f5;
-	}
-	.tab-btn {
-		flex: 1;
-		padding: 12px 8px;
-		border: none;
-		background: transparent;
-		cursor: pointer;
-		font-size: 14px;
-		color: #666;
-		transition: all 0.2s;
-		-webkit-tap-highlight-color: transparent;
-	}
-	.tab-btn:hover {
-		color: #333;
-		background: #eee;
-	}
-	.tab-btn.active {
-		color: #2337ff;
-		background: white;
-		border-bottom: 2px solid #2337ff;
-		font-weight: bold;
-	}
-	.tab-content {
-		display: none;
 		padding: 1em;
-		overflow: visible !important;
+		overflow: visible;
 	}
-	.tab-content.active {
-		display: block;
-	}
-	/* Fix mobile */
-	@media (max-width: 720px) {
-		.comments-wrapper {
-			margin-top: 1em;
-			margin-left: -1em;
-			margin-right: -1em;
-			border-radius: 0;
-			border-left: none;
-			border-right: none;
-		}
-		.tab-content {
-			padding: 0.5em;
-		}
-		.tab-btn {
-			font-size: 13px;
-		}
+	.comments-section h3 {
+		margin-top: 0;
+		color: #333;
+		font-size: 1.1em;
+		border-bottom: 1px solid #eee;
+		padding-bottom: 0.5em;
 	}
 </style>
-
-<script is:inline>
-	document.addEventListener('DOMContentLoaded', function() {
-		var tabs = document.querySelectorAll('.tab-btn');
-		var contents = document.querySelectorAll('.tab-content');
-		
-		tabs.forEach(function(tab) {
-			tab.addEventListener('click', function() {
-				var target = this.getAttribute('data-tab');
-				tabs.forEach(function(t) { t.classList.remove('active'); });
-				contents.forEach(function(c) { c.classList.remove('active'); });
-				this.classList.add('active');
-				document.getElementById('tab-' + target).classList.add('active');
-			});
-		});
-	});
-</script>
