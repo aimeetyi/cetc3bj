@@ -1,0 +1,14 @@
+---
+// Cusdis comment system - supports guest commenting
+---
+
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="6f6ee376-7756-4079-8c13-0603222b62ae"
+  data-page-id={Astro.url.pathname}
+  data-page-url={Astro.url.href}
+  data-page-title={Astro.props.title || ""}
+  data-lang="zh-cn"
+></div>
+
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
