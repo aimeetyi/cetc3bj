@@ -161,36 +161,9 @@ hr {
     overflow-x: visible !important;
     overflow: visible !important;
   }
-  #cusdis_thread {
-    overflow: visible !important;
-  }
-  #cusdis_thread iframe {
-    min-height: 300px !important;
-    width: 100% !important;
-  }
 }
 
-/* Cusdis iframe mobile fix */
-#cusdis_thread {
-  overflow: visible !important;
-  position: relative;
-  width: 100%;
-}
-#cusdis_thread iframe {
-  min-height: 400px !important;
-  width: 100% !important;
-  border: none !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  max-width: 100%;
-}
 @media (max-width: 720px) {
-  #cusdis_thread iframe {
-    min-height: 450px !important;
-    width: 100vw !important;
-    margin-left: calc(-50vw + 50%) !important;
-  }
   .comments-section {
     padding: 0.5em !important;
     border-radius: 0 !important;
