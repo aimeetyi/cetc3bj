@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
+import Giscus from '../components/Giscus.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -23,6 +24,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.date { margin-bottom: 0.5em; color: rgb(var(--gray)); }
 			.last-updated-on { font-style: italic; }
 			.back-link { display: block; margin-top: 2em; text-align: center; }
+			.comments-section { width: 720px; max-width: calc(100% - 2em); margin: 2em auto; padding: 1em; }
+			.comments-section h2 { text-align: center; color: rgb(var(--gray)); font-size: 1.2em; }
 		</style>
 	</head>
 	<body>
@@ -47,6 +50,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					<p class="back-link"><a href="/blog">&larr; 返回新闻列表</a></p>
 				</div>
 			</article>
+
+			<div class="comments-section">
+				<h2>💬 评论</h2>
+				<Giscus />
+			</div>
 		</main>
 		<Footer />
 	</body>
