@@ -1,31 +1,14 @@
 ---
-// Utterances comment system - free, GitHub Issues based
+// Cusdis guest comment system
 ---
 
-<div class="comments-section">
-	<h3>评论</h3>
-	<script src="https://utteranc.es/client.js"
-		repo="aimeetyi/cetc3bj"
-		issue-term="pathname"
-		label="comment"
-		theme="github-light"
-		crossorigin="anonymous"
-		async>
-	</script>
-</div>
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="6f6ee376-7756-4079-8c13-0603222b62ae"
+  data-page-id={Astro.url.pathname}
+  data-page-url={Astro.url.href}
+  data-page-title={Astro.props.title || ""}
+  data-lang="zh-cn"
+></div>
 
-<style>
-	.comments-section {
-		border: 1px solid #e0e0e0;
-		border-radius: 8px;
-		padding: 1em;
-		margin-top: 2em;
-	}
-	.comments-section h3 {
-		margin-top: 0;
-		color: #333;
-		font-size: 1.1em;
-		border-bottom: 1px solid #eee;
-		padding-bottom: 0.5em;
-	}
-</style>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
