@@ -1,32 +1,67 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<Layout
-	title="博客视频"
-	description="博客视频与科技资讯"
-	pubDate={new Date('2026-01-01')}
->
-	<h2>📹 视频与科技资讯</h2>
-	
-	<h3>实测谷歌Gemini 3和Banana 2</h3>
-	<p>波控海蜃易经AGI学说正式升级到2.0版，灵感一念，画面即现。</p>
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead title={"博客视频 - " + SITE_TITLE} description="科技资讯、教育课程与视频内容" />
+		<style>
+			main { width: 960px; }
+			.video-list { list-style: none; padding: 0; }
+			.video-list li { margin-bottom: 2em; padding: 1em; background: #f8f8f8; border-radius: 8px; }
+			.video-list h3 { margin: 0 0 0.3em 0; }
+			.video-list h3 a { text-decoration: none; color: rgb(var(--black)); }
+			.video-list h3 a:hover { color: rgb(var(--accent)); }
+			.video-list .desc { color: rgb(var(--gray)); margin: 0; font-size: 0.9em; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>博客视频</h1>
+			<p>来自 <a href="https://www.xr2robot.com/index.php/zh/bo-ke-zi-xun">中国电科北京冤案网</a> 的视频与科技资讯内容。</p>
 
-	<h3>IEEE科技趋势全球调研</h3>
-	<p>云计算、5G及元宇宙将成为2023年最重要的技术。</p>
+			<ul class="video-list">
+				<li>
+					<h3><a href="/blog/yiagi/">实测谷歌Gemini 3和Banana 2，波控海蜃易经AGI学说正式升级到2.0版</a></h3>
+					<p class="desc">易经AGI学说主要包括：宇宙诞生以来的万物演化与人类革命、通往AGI的迭代循环演进假说，AGI与易经取象比类，东西方范式融合基础研究与行业应用。《AI易道》古演易卦，今研AGI。象数理占，造就通才。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/ieee-technology-trends/">IEEE科技趋势全球调研：云计算、5G及元宇宙将成为2023年最重要的技术</a></h3>
+					<p class="desc">IEEE发布全球调研，邀请美英中印巴五国350位CTO/CIO/IT总监展望2023年及未来科技趋势。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/japanese-robot/">日本巨型VR机器人维修铁路</a></h3>
+					<p class="desc">日本铁路公司用VR机器人来维修铁路的视频Demo。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/xr-robot-demo/">美国Sarcos Robotics公司机器人化身视频Demo</a></h3>
+					<p class="desc">美国Sarcos Robotics公司机器人化身安全地修剪带电线周围的树木Demo。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/gong-jian-ke-cheng/">教育部热门AI计算机、电子信息和自动化类本专科职业教育主要专业课程简介</a></h3>
+					<p class="desc">2022年修订版，涵盖AI计算机、电子信息、自动化等热门专业课程。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/xiao-qi-he-zuo-cu-jin-ban-fa/">教育部等六部门印发《职业学校校企合作促进办法》</a></h3>
+					<p class="desc">促进职业学校与企业合作的政策文件。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/linuxrpiai/">Linux云计算AI树莓派Web区块链等课程技术市场占有率统计</a></h3>
+					<p class="desc">2022年9月发布，涵盖Linux、云计算、AI、树莓派、Web、区块链等课程涉及的实用流行技术市场占有率统计。</p>
+				</li>
+				<li>
+					<h3><a href="/blog/jiaguoshi/">家事国事天下事：中国电科北京劳动人事冤案与天地异象记录</a></h3>
+					<p class="desc">人在做，天在看，共和国央地政法还不纠错。</p>
+				</li>
+			</ul>
 
-	<h3>日本巨型VR机器人"亮相"维修铁路</h3>
-	<p>VR技术在铁路维修领域的创新应用。</p>
-
-	<h3>美国Sarcos Robotics公司机器人化身视频Demo</h3>
-	<p>机器人技术最新演示。</p>
-
-	<h2>📚 教育课程资源</h2>
-	<ul>
-		<li>教育部热门AI计算机、电子信息和自动化类职业教育课程</li>
-		<li>《职业学校校企合作促进办法》</li>
-		<li>Linux云计算AI树莓派Web区块链等课程技术市场统计</li>
-	</ul>
-
-	<p><a href="https://www.xr2robot.com/index.php/zh/bo-ke-zi-xun">查看更多博客视频 →</a></p>
-</Layout>
+			<p><a href="https://www.xr2robot.com/index.php/zh/bo-ke-zi-xun">查看更多视频内容 →</a></p>
+		</main>
+		<Footer />
+	</body>
+</html>
